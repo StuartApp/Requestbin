@@ -14,8 +14,3 @@ ENV BASE_URL=$var_url
 
 RUN make install-tests
 RUN make run-tests
-
-
-
-#apt-get update; apt-get install curl
-

@@ -52,6 +52,19 @@ $ sudo docker-compose up -d
 
 Your own private RequestBin will be running on this server.
 
+## Run tests
+There are two ways of running tests:
+- Build docker image and run tests
+
+```
+docker build -f Dockerfile-test -t test-env .
+docker run test-env make run-tests
+```
+- Or install dependencies in your own env and run tests:
+```
+make install-tests
+make run-tests
+```
 
 Contributors
 ------------

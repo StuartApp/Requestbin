@@ -1,5 +1,6 @@
 import json
 import operator
+from .util import tinyid
 
 from flask import session, make_response, request, render_template
 from requestbin import app, db
@@ -19,7 +20,10 @@ def _response(object, code=200):
 @app.endpoint('api.bins')
 def bins():
     private = request.form.get('private') in ['true', 'on']
-    bin = db.create_bin(private)
+    name = request.form.get('name')
+    if name is None:
+        name = tinyid(8)
+    bin = db.create_bin(private, name)
     if bin.private:
         session[bin.name] = bin.secret_key
     return _response(bin.to_dict())

@@ -4,13 +4,6 @@ import os
 import logging
 from api import *
 
-
-# curl -X POST -d "private=false&name=test" http://localhost:8000/api/v1/bins
-# curl -X POST -d "fizz=buzz" http://localhost:8000/name
-
-BASE_URL = os.getenv("BASE_URL", "http://localhost:8000")
-
-
 class TestBinCreation(unittest.TestCase):
     def test_bin_without_name(self):
         data = {'private': False}

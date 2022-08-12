@@ -2,13 +2,6 @@ import unittest
 import os
 from api import *
 
-# curl -X POST -d "private=false&name=xx" http://localhost:8000/api/v1/bins
-# curl -X POST -d "fizz=buzz" http://localhost:8000/xx
-# curl -X GET http://localhost:8000/api/v1/bins/xx/requests
-
-BASE_URL = os.getenv("BASE_URL", "http://localhost:8000")
-
-
 class TestWebhookReception(unittest.TestCase):
     def setUp(self):
         self.bin_name='test'
